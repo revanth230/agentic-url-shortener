@@ -4,6 +4,10 @@ from pydantic import BaseModel, HttpUrl
 import secrets
 import string
 
+from app.database import Base, engine
+from app import models
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Agentic URL Shortener",
